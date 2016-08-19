@@ -1,0 +1,12 @@
+ div{
+    font-family: sans-serif;
+    color : rgb(255,123,224);
+}
+#idP, .classText{
+    color : rgb(0,0,224);
+    background-color: #FFFF00;
+    font-size: 10px;
+}
+a{
+    text-decoration: none;
+}
