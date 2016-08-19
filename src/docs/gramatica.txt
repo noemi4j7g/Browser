@@ -1,0 +1,64 @@
+Gramatica de documentos HTML reconocidos por el navegador que estamos implementando
+
+—-
+
+html -> '<html>' head body '</html>'
+
+head -> '<head>' (link | script)* '</head>'
+
+link -> '<link ' atribute* '/>'
+	
+attribute -> name ‘=‘ string
+name -> rel | type | href | title | src
+string -> ‘“‘ texto ‘“’
+
+script -> '<script ' atribute* '>' '</script>'
+
+body -> '<body>' (h1 | h2 | elementotexto)* '</body>'
+
+h1 -> '<h1’ atribute* ’>' texto '</h1>'
+h2 -> '<h2’ atribute* ’>' texto '</h2>'
+
+elementostexto -> elementotexto*
+elementotexto -> textosimple | textoanidado
+
+textosimple -> a | texto
+a -> '<a' atribute* '>' texto '</a>'
+
+textoanidado -> '<div’ atribute* ’>’ elementostexto '</div>'
+             |  '<p’ atribute*   ’>' elementostexto '</p>'
+             |  lista
+
+lista -> '<ul’ atribute* ’>' elementolista* '</ul>'
+
+elementolista -> '<li’ atribute* ’>' elementostexto '</li>'
+
+--
+Gramatica concreta inicial simplificada
+
+html -> '<html>' body '</html>'
+
+body -> '<body>' elementotexto '</body>'
+
+elementotexto -> textosimple | textoanidado
+
+textosimple -> a | texto
+
+a -> '<a' '>' texto '</a>'
+
+textoanidado -> '<p’ ’>' elementotexto '</p>'
+
+-
+Gramatica abstracta inicial simplificada
+
+html -> body
+
+body -> elementotexto
+
+elementotexto -> textosimple | textoanidado
+
+textosimple -> a | texto
+
+a -> texto
+
+textoanidado -> elementotexto

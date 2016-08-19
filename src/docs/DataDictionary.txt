@@ -1,0 +1,13 @@
+html lang
+head
+link rel type href title
+script type src
+body id class
+h1 name id class
+h2 name id class
+div name id class
+ul name id class
+p name id class
+a href name id class
+li name id class
+br
